@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://1fmibve1ko2e"]
+
+[ext_resource type="Texture2D" uid="uid://k1threoy8t00" path="res://Pictures/enemy1.png" id="1_letyr"]
+[ext_resource type="Script" uid="uid://ldilvnsv7c3a" path="res://Scenes/Mobs/mob.gd" id="1_oe7hw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oe7hw"]
+radius = 253.66316
+
+[node name="Mob" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+motion_mode = 1
+script = ExtResource("1_oe7hw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.9006115, 0.20688108, 0.8335816, 1)
+texture = ExtResource("1_letyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oe7hw")
