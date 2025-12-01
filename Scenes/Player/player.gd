@@ -5,3 +5,7 @@ func _physics_process(delta):
 	var speed = 600.0
 	velocity = direction * speed
 	move_and_slide()
+
+	# if some input is existing
+	if direction != Vector2.ZERO:
+		rotation = direction.angle()
