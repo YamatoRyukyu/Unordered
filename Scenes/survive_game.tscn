@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://7iibam0arwit"]
+[gd_scene load_steps=4 format=3 uid="uid://7iibam0arwit"]
 
+[ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
-[ext_resource type="PackedScene" uid="uid://1fmibve1ko2e" path="res://Scenes/Mobs/mob.tscn" id="2_rert6"]
+
+[sub_resource type="Curve2D" id="Curve2D_d1rg3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -229.00006, -192.00003, 0, 0, 0, 0, 1456.9227, -183.8282, 0, 0, 0, 0, 1455.0482, 774.72534, 0, 0, 0, 0, -235.5601, 769.82214, 0, 0, 0, 0, -233.6858, -97.207, 0, 0, 0, 0, -229.00006, -192.00003)
+}
+point_count = 6
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_40q2b")
 
 [node name="Player" parent="." instance=ExtResource("1_74p8y")]
 position = Vector2(603, 330)
@@ -18,11 +25,19 @@ offset_right = 1153.0
 offset_bottom = 639.0
 color = Color(0.24477637, 0.2447764, 0.24477637, 1)
 
-[node name="Mob" parent="." instance=ExtResource("2_rert6")]
-position = Vector2(432.99997, 246.99998)
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-6456.406, -3860.4595)
+scale = Vector2(10.670714, 12.237189)
+curve = SubResource("Curve2D_d1rg3")
 
-[node name="Mob2" parent="." instance=ExtResource("2_rert6")]
-position = Vector2(460, 429)
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-229.00006, -192.00003)
+rotation = 0.0048470576
 
-[node name="Mob3" parent="." instance=ExtResource("2_rert6")]
-position = Vector2(873, 466)
+[node name="spawn_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_timer_timeout"]
