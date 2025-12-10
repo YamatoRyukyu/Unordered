@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://wstvskhsbghf"]
+[gd_scene load_steps=6 format=3 uid="uid://wstvskhsbghf"]
 
 [ext_resource type="Script" uid="uid://1v7qu01cyhbb" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://dt7i5xnuxjimg" path="res://Pictures/player.png" id="1_s0eop"]
+[ext_resource type="Resource" uid="uid://c8176ogcufrhg" path="res://Scenes/ActionDatas/Canon/canon.tres" id="2_h54ih"]
+[ext_resource type="PackedScene" uid="uid://dgp1yv70wg6f6" path="res://Scenes/action_generator.tscn" id="3_h54ih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8w5"]
 size = Vector2(501, 498)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_ft8w5")
+action_resources = Array[Resource]([ExtResource("2_h54ih")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -18,3 +23,10 @@ shape = SubResource("RectangleShape2D_ft8w5")
 texture = ExtResource("1_s0eop")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ActionTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="action_area" parent="." instance=ExtResource("3_h54ih")]
+
+[connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
