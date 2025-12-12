@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var base_attack_distance:float
+@export var base_attack_damage:float
 @export var attack_speed: float
 
 var marker
@@ -21,3 +22,8 @@ func _physics_process(delta):
 
 	if canon_ball.position.x >= base_attack_distance:
 		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(base_attack_damage)
