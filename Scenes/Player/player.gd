@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+signal health_depleted
+
 @export var action_resources: Array[Resource]
+@export var health: float
 var action_index
 var action_len
 
@@ -26,3 +29,8 @@ func call_action():
 	
 func _on_action_timer_timeout() -> void:
 	call_action()
+
+func take_damage(damage: float):
+	health -= damage
+	if health <= 0.0:
+		health_depleted.emit()
