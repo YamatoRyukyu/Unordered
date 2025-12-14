@@ -50,4 +50,3 @@ func get_exp():
 		current_exp =0
 		level +=1
 		exp_to_next_level =level *10
-	print(current_exp, exp_to_next_level)
