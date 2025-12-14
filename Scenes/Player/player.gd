@@ -6,12 +6,13 @@ signal health_depleted
 @export var health: float
 var action_index
 var action_len
+var exp:float
 
 func _ready() -> void:
 	$ActionTimer.wait_time = 1.0
 	action_index =0
 	action_len =1
-	
+	exp =0.0
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
@@ -34,3 +35,6 @@ func take_damage(damage: float):
 	health -= damage
 	if health <= 0.0:
 		health_depleted.emit()
+
+func get_exp():
+	exp +=1
