@@ -6,13 +6,20 @@ signal health_depleted
 @export var health: float
 var action_index
 var action_len
-var exp:float
+
+var level:int
+var current_exp:int
+var exp_to_next_level:int
+
 
 func _ready() -> void:
 	$ActionTimer.wait_time = 1.0
 	action_index =0
 	action_len =1
-	exp =0.0
+	
+	level =1
+	current_exp =0
+	exp_to_next_level =10
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
@@ -37,4 +44,10 @@ func take_damage(damage: float):
 		health_depleted.emit()
 
 func get_exp():
-	exp +=1
+	current_exp +=1
+
+	if exp_to_next_level <= current_exp:
+		current_exp =0
+		level +=1
+		exp_to_next_level =level *10
+	print(current_exp, exp_to_next_level)
