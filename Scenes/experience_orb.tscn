@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://14j2i6iq571e"]
+
+[ext_resource type="Script" uid="uid://ck0545k8a115d" path="res://Scripts/exp.gd" id="1_8071p"]
+[ext_resource type="Texture2D" uid="uid://cvb3hj6o5l215" path="res://Pictures/circul.png" id="1_h6c7h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8071p"]
+radius = 11.0
+
+[node name="ExperienceOrb" type="Area2D"]
+z_index = -1
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_8071p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8071p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_h6c7h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
