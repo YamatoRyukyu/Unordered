@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://7iibam0arwit"]
+[gd_scene load_steps=5 format=3 uid="uid://7iibam0arwit"]
 
 [ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
+[ext_resource type="PackedScene" uid="uid://duy05ssb45hrk" path="res://Scenes/HUD/hp_bar.tscn" id="3_40q2b"]
 
 [sub_resource type="Curve2D" id="Curve2D_d1rg3"]
 _data = {
@@ -13,6 +14,7 @@ point_count = 6
 script = ExtResource("1_40q2b")
 
 [node name="Player" parent="." instance=ExtResource("1_74p8y")]
+unique_name_in_owner = true
 position = Vector2(603, 330)
 scale = Vector2(0.1, 0.1)
 
@@ -67,6 +69,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
 text = "Game Over"
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="PlayerHBBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_40q2b")]
+target = NodePath("../Player")
+relative = Vector2(0, 50)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_timer_timeout"]
