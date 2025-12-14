@@ -74,6 +74,7 @@ text = "Game Over"
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="PlayerHBBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_40q2b")]
+z_index = 3
 target = NodePath("../Player")
 relative = Vector2(0, 50)
 
