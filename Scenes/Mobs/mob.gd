@@ -27,5 +27,5 @@ func take_damage(damage: float):
 	health -=damage
 	
 	if health <=0:
-		exp_manager.spawn(global_position)
+		exp_manager.spawn(global_position, 10)
 		queue_free()

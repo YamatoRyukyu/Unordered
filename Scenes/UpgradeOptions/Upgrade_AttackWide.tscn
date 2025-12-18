@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcwf7jgg3kenx"]
+
+[ext_resource type="PackedScene" uid="uid://d2plt2dnoljlm" path="res://Scenes/UpgradeOptions/UpgradeOption.tscn" id="1_gun8q"]
+[ext_resource type="Texture2D" uid="uid://ca5qlexrsm843" path="res://Pictures/UpgradeOption_SizeUp.png" id="2_viscx"]
+
+[node name="Button" instance=ExtResource("1_gun8q")]
+icon_texture = ExtResource("2_viscx")
+description_text = "武器の攻撃範囲を2倍する"
+upgrade_type = "player.range"
+upgrade_value = 2.0
