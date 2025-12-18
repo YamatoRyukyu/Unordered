@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwd7lh5km48ih"]
+
+[ext_resource type="PackedScene" uid="uid://d2plt2dnoljlm" path="res://Scenes/UpgradeOptions/UpgradeOption.tscn" id="1_jt6qb"]
+[ext_resource type="Texture2D" uid="uid://bjmwfmpdsm2se" path="res://Pictures/UpgradeOption_CanonAdd.png" id="2_q3uhb"]
+
+[node name="Button" instance=ExtResource("1_jt6qb")]
+icon_texture = ExtResource("2_q3uhb")
+description_text = "武器の数が2倍になる"
+upgrade_type = "weapon_add"
+upgrade_value = 2.0

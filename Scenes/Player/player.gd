@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal health_depleted
+signal call_levelup_ui
 
 @export var action_resources: Array[Resource]
 @export var health: float
@@ -42,11 +43,21 @@ func take_damage(damage: float):
 	health -= damage
 	if health <= 0.0:
 		health_depleted.emit()
+		
+func level_up():
+	get_tree().paused = true
+	current_exp =0
+	level +=1
+	exp_to_next_level =level *10	
+	
+	call_levelup_ui.emit()
 
 func get_exp():
 	current_exp +=1
 
 	if exp_to_next_level <= current_exp:
-		current_exp =0
-		level +=1
-		exp_to_next_level =level *10
+		level_up()
+
+
+func _on_level_upui_upgrade_chosen(upgrade_type: String, upgrade_value: float) -> void:
+	print(upgrade_type, upgrade_value)
