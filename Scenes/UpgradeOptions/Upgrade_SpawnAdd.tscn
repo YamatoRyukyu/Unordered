@@ -6,5 +6,6 @@
 [node name="Button" instance=ExtResource("1_jt6qb")]
 icon_texture = ExtResource("2_q3uhb")
 description_text = "武器の数が2倍になる"
-upgrade_type = "weapon_add"
+upgrade_target = "player"
+upgrade_type = "action_quantity"
 upgrade_value = 2.0

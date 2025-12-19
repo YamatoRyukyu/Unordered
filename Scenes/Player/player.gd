@@ -12,6 +12,9 @@ var level:int
 var current_exp:int
 var exp_to_next_level:int
 
+var buff_multiplier ={
+	"action_quantity":1.0
+}
 
 func _ready() -> void:
 	$ActionTimer.wait_time = 1.0
@@ -33,7 +36,9 @@ func _physics_process(delta):
 		rotation = direction.angle()
 
 func call_action():
-	$action_area.generate_action(action_resources[action_index])
+	var num = buff_multiplier["action_quantity"]
+	for i in range(num):
+		$action_area.generate_action(action_resources[action_index])
 	action_index = (action_index +1)%action_len
 	
 func _on_action_timer_timeout() -> void:
@@ -58,6 +63,14 @@ func get_exp():
 	if exp_to_next_level <= current_exp:
 		level_up()
 
+func upgrade(upgrade_type: String, upgrade_value:float):
+	buff_multiplier[upgrade_type] *= upgrade_value
 
-func _on_level_upui_upgrade_chosen(upgrade_type: String, upgrade_value: float) -> void:
-	print(upgrade_type, upgrade_value)
+func _on_level_upui_upgrade_chosen(upgrade_target:String,upgrade_type: String, upgrade_value: float) -> void:
+	match upgrade_target:
+		"action":
+			$action_area.action_upgrade(upgrade_type, upgrade_value)
+		"action_area":
+			$action_area.generate_upgrade(upgrade_type, upgrade_value)
+		"player":
+			upgrade(upgrade_type, upgrade_value)
