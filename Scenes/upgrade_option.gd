@@ -1,11 +1,12 @@
 extends Button
 
-signal upgrade_selected(upgrade_type:String, upgrade_value:float)
+signal upgrade_selected(upgrade_target:String ,upgrade_type:String, upgrade_value:float)
 
 @export var icon_texture: Texture2D
 @export var description_text: String
 @export var upgrade_effect: String
 
+@export var upgrade_target:String
 @export var upgrade_type:String
 @export var upgrade_value:float
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 	call_deferred("adjust_sprite_to_control")
 
 func _on_pressed() -> void:
-	upgrade_selected.emit(upgrade_type, upgrade_value)
+	upgrade_selected.emit(upgrade_target,upgrade_type, upgrade_value)
 
 func adjust_sprite_to_control():
 	if sprite.texture:

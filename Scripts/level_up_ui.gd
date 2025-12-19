@@ -6,7 +6,7 @@ extends Control
 
 @export var option_num:int
 
-signal upgrade_chosen(upgrade_type: String, upgrade_value: float)
+signal upgrade_chosen(upgrade_target:String, upgrade_type: String, upgrade_value: float)
 
 	
 func chose_options():
@@ -26,8 +26,8 @@ func _on_player_call_levelup_ui() -> void:
 	chose_options()
 	visible =true
 
-func _on_upgrade_selected(upgrade_type: String, upgrade_value: float):
-	upgrade_chosen.emit(upgrade_type, upgrade_value)
+func _on_upgrade_selected(upgrade_target:String ,upgrade_type: String, upgrade_value: float):
+	upgrade_chosen.emit(upgrade_target,upgrade_type, upgrade_value)
 	free_options()
 	get_tree().paused =false
 	visible =false
