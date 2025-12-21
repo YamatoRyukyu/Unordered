@@ -20,4 +20,5 @@ modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_h6c7h")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

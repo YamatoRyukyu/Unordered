@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wstvskhsbghf"]
+[gd_scene load_steps=8 format=3 uid="uid://wstvskhsbghf"]
 
 [ext_resource type="Script" uid="uid://1v7qu01cyhbb" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://dt7i5xnuxjimg" path="res://Pictures/player.png" id="1_s0eop"]
@@ -10,6 +10,9 @@ size = Vector2(501, 498)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ude3g"]
 size = Vector2(593, 594)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ude3g"]
+radius = 2531.024
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -42,5 +45,12 @@ collision_mask = 20
 modulate = Color(1, 0.078431375, 0, 1)
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_ude3g")
+
+[node name="AttractOrbArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractOrbArea"]
+shape = SubResource("CircleShape2D_ude3g")
 
 [connection signal="timeout" from="ActionTimer" to="." method="_on_action_timer_timeout"]
