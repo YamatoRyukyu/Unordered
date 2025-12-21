@@ -69,8 +69,6 @@ func upgrade(upgrade_type: String, upgrade_value:float):
 func _on_level_upui_upgrade_chosen(upgrade_target:String,upgrade_type: String, upgrade_value: float) -> void:
 	match upgrade_target:
 		"action":
-			$action_area.action_upgrade(upgrade_type, upgrade_value)
-		"action_area":
 			$action_area.generate_upgrade(upgrade_type, upgrade_value)
 		"player":
 			upgrade(upgrade_type, upgrade_value)
