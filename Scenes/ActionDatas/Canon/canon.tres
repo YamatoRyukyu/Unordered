@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ActionData" load_steps=3 format=3 uid="uid://c8176ogcufrhg"]
 
 [ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_1rkpc"]
-[ext_resource type="PackedScene" uid="uid://cdocjwcng03st" path="res://Scenes/ActionDatas/Canon/canon_ball.tscn" id="1_wbip4"]
+[ext_resource type="PackedScene" uid="uid://cvhccbakpix24" path="res://Scenes/ActionDatas/Canon/canon.tscn" id="1_wbip4"]
 
 [resource]
 script = ExtResource("1_1rkpc")
