@@ -11,8 +11,7 @@ func generate_action(action_data: ActionData):
 
 	for i in range(buff_multiplier["action_quantity"]):
 		var action_instance = action_scene.instantiate()
-		var marker = action_instance.get_node("TargetPoint")
-		marker.position.x *= buff_multiplier["range"]
+		action_instance.base_attack_distance *= buff_multiplier["range"]
 	
 		var size = buff_multiplier["size"]
 		action_instance.scale *= Vector2(size,size)
@@ -21,6 +20,7 @@ func generate_action(action_data: ActionData):
 		
 		var angle = 360.0 / buff_multiplier["action_quantity"] * i
 		action_instance.global_rotation_degrees = angle + global_rotation_degrees
+		
 		get_tree().root.add_child(action_instance)
 
 func calc_damage(target: Node2D, damage: float):

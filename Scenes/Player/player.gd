@@ -19,7 +19,7 @@ var buff_multiplier ={
 func _ready() -> void:
 	$ActionTimer.wait_time = 1.0
 	action_index =0
-	action_len =1
+	action_len = action_resources.size()
 	
 	level =1
 	current_exp =0

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvhccbakpix24"]
+
+[ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_2osws"]
+[ext_resource type="Script" uid="uid://blrn1pynskhhu" path="res://Scenes/ActionDatas/Canon/canon.gd" id="2_oem2p"]
+[ext_resource type="Texture2D" uid="uid://cvb3hj6o5l215" path="res://Pictures/circul.png" id="3_bjbto"]
+
+[node name="Area2D" instance=ExtResource("1_2osws")]
+scale = Vector2(0.1, 0.1)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_oem2p")
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+modulate = Color(0.21601248, 0.9999998, 0.99947304, 1)
+texture = ExtResource("3_bjbto")
+
+[node name="TargetPoint" type="Marker2D" parent="." index="1"]
+position = Vector2(713, 0)

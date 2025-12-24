@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=3 format=3 uid="uid://b6t61bnowwsle"]
+
+[ext_resource type="PackedScene" uid="uid://c7ip11hfvoh4k" path="res://Scenes/ActionDatas/Bomb/Bomb.tscn" id="1_kybom"]
+[ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_o3sx8"]
+
+[resource]
+script = ExtResource("1_o3sx8")
+name = "Bomb"
+action_scene = ExtResource("1_kybom")
+metadata/_custom_type_script = "uid://cqwhybigt83k6"
