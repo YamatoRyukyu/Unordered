@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ActionData" load_steps=3 format=3 uid="uid://c8176ogcufrhg"]
+[gd_resource type="Resource" script_class="ActionData" load_steps=4 format=3 uid="uid://c8176ogcufrhg"]
 
 [ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_1rkpc"]
 [ext_resource type="PackedScene" uid="uid://cvhccbakpix24" path="res://Scenes/ActionDatas/Canon/canon.tscn" id="1_wbip4"]
+[ext_resource type="Texture2D" uid="uid://bs1jsdhapimie" path="res://Pictures/canon.png" id="2_sklxk"]
 
 [resource]
 script = ExtResource("1_1rkpc")
+icon = ExtResource("2_sklxk")
 name = "Canon"
 action_scene = ExtResource("1_wbip4")
 metadata/_custom_type_script = "uid://cqwhybigt83k6"

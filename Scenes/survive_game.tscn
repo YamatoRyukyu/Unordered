@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7iibam0arwit"]
+[gd_scene load_steps=10 format=3 uid="uid://7iibam0arwit"]
 
 [ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
 [ext_resource type="PackedScene" uid="uid://duy05ssb45hrk" path="res://Scenes/HUD/hp_bar.tscn" id="3_40q2b"]
+[ext_resource type="PackedScene" uid="uid://eo11qkw78wp1" path="res://Scenes/action_slot.tscn" id="4_am3ab"]
 [ext_resource type="Script" uid="uid://dv0vjuq65lx2t" path="res://Scenes/exp_manager.gd" id="4_d1rg3"]
 [ext_resource type="PackedScene" uid="uid://cexra37nm8rue" path="res://Scenes/LevelUpUI.tscn" id="5_t1jgj"]
 
@@ -11,6 +12,22 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -229.00006, -192.00003, 0, 0, 0, 0, 1456.9227, -183.8282, 0, 0, 0, 0, 1455.0482, 774.72534, 0, 0, 0, 0, -235.5601, 769.82214, 0, 0, 0, 0, -233.6858, -97.207, 0, 0, 0, 0, -229.00006, -192.00003)
 }
 point_count = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1jgj"]
+bg_color = Color(0.12603769, 0.10883663, 0.0075895097, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.37036443, 0.37036452, 0.37036428, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am3ab"]
+bg_color = Color(1, 1, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.36862746, 0.36862746, 0.36862746, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_40q2b")
@@ -83,6 +100,56 @@ text = "Game Over"
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
+[node name="ExpBar" type="ProgressBar" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 39.0
+offset_top = 15.0
+offset_right = -39.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_t1jgj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_am3ab")
+value = 50.0
+show_percentage = false
+
+[node name="LevelLabel" type="Label" parent="HUD/ExpBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayTimer" type="Timer" parent="HUD"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 542.435
+offset_top = 53.0
+offset_right = 582.435
+offset_bottom = 76.0
+size_flags_horizontal = 2
+size_flags_vertical = 10
+text = "xx:xx"
+horizontal_alignment = 1
+
+[node name="ActionSlot" parent="HUD" instance=ExtResource("4_am3ab")]
+offset_left = 52.0
+offset_top = 597.0
+offset_right = 92.0
+offset_bottom = 637.0
+
 [node name="PlayerHBBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_40q2b")]
 z_index = 3
 target = NodePath("../Player")
@@ -92,6 +159,8 @@ relative = Vector2(0, 50)
 script = ExtResource("4_d1rg3")
 
 [connection signal="call_levelup_ui" from="Player" to="Player/UI/LevelUPUI" method="_on_player_call_levelup_ui"]
+[connection signal="exp_update" from="Player" to="." method="_on_player_exp_update"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="upgrade_chosen" from="Player/UI/LevelUPUI" to="Player" method="_on_level_upui_upgrade_chosen"]
 [connection signal="timeout" from="spawn_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HUD/PlayTimer" to="." method="_on_play_timer_timeout"]

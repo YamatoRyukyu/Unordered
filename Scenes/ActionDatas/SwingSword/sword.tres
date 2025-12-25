@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ActionData" load_steps=3 format=3 uid="uid://dw4ro12x1o3kr"]
+[gd_resource type="Resource" script_class="ActionData" load_steps=4 format=3 uid="uid://dw4ro12x1o3kr"]
 
 [ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_hb44a"]
 [ext_resource type="PackedScene" uid="uid://c7q3e3hmm234i" path="res://Scenes/ActionDatas/SwingSword/sword.tscn" id="1_woxiv"]
+[ext_resource type="Texture2D" uid="uid://b4yrvowxye0ed" path="res://Pictures/action_sword.png" id="2_eocst"]
 
 [resource]
 script = ExtResource("1_hb44a")
+icon = ExtResource("2_eocst")
 name = "sword"
 action_scene = ExtResource("1_woxiv")
 metadata/_custom_type_script = "uid://cqwhybigt83k6"
