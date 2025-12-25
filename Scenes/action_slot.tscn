@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://eo11qkw78wp1"]
+
+[ext_resource type="Script" uid="uid://d2jcex11scqqt" path="res://Scenes/action_slot.gd" id="1_0hmf7"]
+
+[node name="ActionSlot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+script = ExtResource("1_0hmf7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 20
+alignment = 1

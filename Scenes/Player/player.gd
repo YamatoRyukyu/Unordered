@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal health_depleted
 signal call_levelup_ui
+signal exp_update
 
 @export var action_resources: Array[Resource]
 @export var health: float
@@ -24,7 +25,8 @@ func _ready() -> void:
 	level =1
 	current_exp =0
 	exp_to_next_level =10
-
+	_exp_update_signal()
+	
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
 	var speed = 600.0
@@ -53,13 +55,18 @@ func level_up():
 	level +=1
 	exp_to_next_level =level *10	
 	
+	_exp_update_signal()
 	call_levelup_ui.emit()
 
 func get_exp():
 	current_exp +=1
-
+	_exp_update_signal()
+	
 	if exp_to_next_level <= current_exp:
 		level_up()
+
+func _exp_update_signal():
+	exp_update.emit(current_exp, exp_to_next_level, level)
 
 func upgrade(upgrade_type: String, upgrade_value:float):
 	buff_multiplier[upgrade_type] *= upgrade_value

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ay4q7amfuco"]
+
+[ext_resource type="Script" uid="uid://3uxuiwyinj47" path="res://Scenes/slot.gd" id="1_luhj6"]
+
+[node name="Slot" type="CenterContainer"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 60.0
+offset_bottom = 60.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_luhj6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[node name="Icon" type="Sprite2D" parent="Control"]
+
+[node name="Shade" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+color = Color(0.39215687, 0.39215687, 0.39215687, 0.6862745)
