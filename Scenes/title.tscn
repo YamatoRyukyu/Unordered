@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://jfqc2mtjwtqw"]
+
+[ext_resource type="Script" uid="uid://cavd73f4drl4o" path="res://Scenes/title.gd" id="1_w31pl"]
+
+[sub_resource type="FontVariation" id="FontVariation_4obfb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w31pl"]
+font = SubResource("FontVariation_4obfb")
+font_size = 81
+
+[node name="Title" type="CanvasLayer"]
+script = ExtResource("1_w31pl")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -252.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "UNORDERED"
+label_settings = SubResource("LabelSettings_w31pl")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -347.0
+offset_top = -133.5
+offset_right = 347.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 57
+alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 71
+text = "Start"
+
+[node name="EndButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 71
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
