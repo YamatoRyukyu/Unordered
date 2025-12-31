@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://7iibam0arwit"]
 
-[ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/survive_game.gd" id="1_40q2b"]
+[ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/GameSequence/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
 [ext_resource type="PackedScene" uid="uid://duy05ssb45hrk" path="res://Scenes/HUD/hp_bar.tscn" id="3_40q2b"]
-[ext_resource type="PackedScene" uid="uid://eo11qkw78wp1" path="res://Scenes/action_slot.tscn" id="4_am3ab"]
-[ext_resource type="Script" uid="uid://dv0vjuq65lx2t" path="res://Scenes/exp_manager.gd" id="4_d1rg3"]
-[ext_resource type="PackedScene" uid="uid://cexra37nm8rue" path="res://Scenes/LevelUpUI.tscn" id="5_t1jgj"]
+[ext_resource type="PackedScene" uid="uid://eo11qkw78wp1" path="res://Scenes/ActionSlot/action_slot.tscn" id="4_am3ab"]
+[ext_resource type="Script" uid="uid://dv0vjuq65lx2t" path="res://Scenes/EXP/exp_manager.gd" id="4_d1rg3"]
+[ext_resource type="PackedScene" uid="uid://cexra37nm8rue" path="res://Scenes/LevelUpUI/LevelUpUI.tscn" id="5_t1jgj"]
 
 [sub_resource type="Curve2D" id="Curve2D_d1rg3"]
 _data = {
@@ -159,6 +159,7 @@ relative = Vector2(0, 50)
 script = ExtResource("4_d1rg3")
 
 [connection signal="call_levelup_ui" from="Player" to="Player/UI/LevelUPUI" method="_on_player_call_levelup_ui"]
+[connection signal="change_action" from="Player" to="HUD/ActionSlot" method="_on_player_change_action"]
 [connection signal="exp_update" from="Player" to="." method="_on_player_exp_update"]
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="upgrade_chosen" from="Player/UI/LevelUPUI" to="Player" method="_on_level_upui_upgrade_chosen"]

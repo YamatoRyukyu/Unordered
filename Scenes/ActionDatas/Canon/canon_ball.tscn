@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdocjwcng03st"]
+[gd_scene load_steps=5 format=3 uid="uid://cdocjwcng03st"]
 
 [ext_resource type="Texture2D" uid="uid://cvb3hj6o5l215" path="res://Pictures/circul.png" id="1_ffy4o"]
 [ext_resource type="Script" uid="uid://blrn1pynskhhu" path="res://Scenes/ActionDatas/Canon/canon.gd" id="1_gsoyl"]
+[ext_resource type="Texture2D" uid="uid://bs1jsdhapimie" path="res://Pictures/canon.png" id="2_235pd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gsoyl"]
 radius = 255.50146
@@ -16,8 +17,7 @@ script = ExtResource("1_gsoyl")
 shape = SubResource("CircleShape2D_gsoyl")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-modulate = Color(0.0701452, 0.30794674, 1, 1)
-texture = ExtResource("1_ffy4o")
+texture = ExtResource("2_235pd")
 
 [node name="TargetPoint" type="Marker2D" parent="."]
 

@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuev5wtei7uhj"]
+
+[ext_resource type="Script" uid="uid://bi8jehakk7p7c" path="res://Scenes/GameSequence/preparation.gd" id="1_x3ief"]
+[ext_resource type="Script" uid="uid://cxmobekj7573u" path="res://Scripts/PreparationActionSlot/deck_zone.gd" id="2_pmpc7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_od2p4"]
+font_size = 66
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3ief"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmpc7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr22p"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh3nq"]
+draw_center = false
+corner_detail = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr22p"]
+size = Vector2(1085, 125)
+
+[node name="Preparation" type="CanvasLayer"]
+script = ExtResource("1_x3ief")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "SELECT"
+label_settings = SubResource("LabelSettings_od2p4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 18.0
+offset_right = 120.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxFlat_x3ief")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pmpc7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mr22p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_oh3nq")
+text = "START"
+
+[node name="ActionSlots" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = 107.0
+offset_right = -90.0
+offset_bottom = -236.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -144.0
+offset_right = -34.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("2_pmpc7")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Area2D" type="Area2D" parent="Control"]
+collision_layer = 512
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Area2D"]
+position = Vector2(542.5, 62.5)
+shape = SubResource("RectangleShape2D_mr22p")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="area_entered" from="Control/Area2D" to="Control" method="_on_area_2d_area_entered"]
