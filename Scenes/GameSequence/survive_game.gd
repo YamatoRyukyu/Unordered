@@ -1,11 +1,13 @@
 extends Node2D
 
 var time_count: int
+var pause_scene: PackedScene
 
 func _ready() -> void:
 	var spawn_span = 0.3
 	%spawn_timer.wait_time = spawn_span
 	time_count =0
+	pause_scene =preload("res://Scenes/GameSequence/pause.tscn")
 	_timer_to_watch()
 
 func spawn_mob():
@@ -37,3 +39,9 @@ func _timer_to_watch():
 	var minute = time_count/60
 	var second = time_count%60
 	%TimerLabel.text = str(minute).pad_zeros(2) + ":" + str(second).pad_zeros(2)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		get_tree().paused =true
+		var pause_instance =pause_scene.instantiate()
+		add_child(pause_instance)
