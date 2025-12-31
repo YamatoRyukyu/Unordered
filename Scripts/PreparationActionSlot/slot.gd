@@ -27,9 +27,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var option:Control =area.get_parent().get_parent().get_parent()
 	option.check_parent =$CenterContainer
 	
-	for child in control.get_children():
-		if child is Option:
-			print(child.action)
 
 func get_option_action():
 	for child in control.get_children():

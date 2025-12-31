@@ -14,16 +14,14 @@ func spawn_mob():
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
 	
-
-
+	
 func _on_timer_timeout() -> void:
 	spawn_mob()
 
 
 func _on_player_health_depleted() -> void:
-	%GameOver.visible = true
-	get_tree().paused = true
-
+	GameManager.survive_time =time_count
+	GameManager.load_game_over_scene()
 
 func _on_player_exp_update(current:float, next:float, level:float) -> void:
 	%ExpBar.max_value = next
