@@ -1,0 +1,219 @@
+[gd_scene load_steps=7 format=3 uid="uid://biujmmb8cevu8"]
+
+[ext_resource type="Script" uid="uid://bq0q8qxipvsak" path="res://Scenes/GameSequence/result.gd" id="1_pb001"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pb001"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7hqp"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbw1r"]
+bg_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbjsm"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js3ef"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_pb001")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 51
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 135.0
+offset_top = 74.0
+offset_right = -135.0
+offset_bottom = -415.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultContainer" type="VBoxContainer" parent="Control"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeLabel" type="HBoxContainer" parent="Control/ResultContainer"]
+custom_minimum_size = Vector2(0, 69)
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/ResultContainer/TimeLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="Control/ResultContainer/TimeLabel/Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 369.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "SURVIVAL TIME"
+
+[node name="Control2" type="Control" parent="Control/ResultContainer/TimeLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text2" type="Label" parent="Control/ResultContainer/TimeLabel/Control2"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 18.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = ":"
+
+[node name="Control3" type="Control" parent="Control/ResultContainer/TimeLabel"]
+layout_mode = 2
+
+[node name="TimeValueLabel" type="Label" parent="Control/ResultContainer/TimeLabel/Control3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -802.0
+offset_right = -4.0
+offset_bottom = 69.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="LevelLabel" type="HBoxContainer" parent="Control/ResultContainer"]
+custom_minimum_size = Vector2(0, 69)
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Control" parent="Control/ResultContainer/LevelLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text" type="Label" parent="Control/ResultContainer/LevelLabel/Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 369.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = "LEVEL"
+
+[node name="Control2" type="Control" parent="Control/ResultContainer/LevelLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Text2" type="Label" parent="Control/ResultContainer/LevelLabel/Control2"]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 18.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 50
+text = ":"
+
+[node name="Control3" type="Control" parent="Control/ResultContainer/LevelLabel"]
+layout_mode = 2
+
+[node name="LevelValueLabel" type="Label" parent="Control/ResultContainer/LevelLabel/Control3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -802.0
+offset_right = -4.0
+offset_bottom = 69.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "10"
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 440.0
+offset_top = -263.0
+offset_right = -440.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 19
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_pb001")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o7hqp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbw1r")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pbjsm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_js3ef")
+text = "RESTART"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_pb001")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o7hqp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbw1r")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pbjsm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_js3ef")
+text = "EXIT"
+
+[connection signal="button_down" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

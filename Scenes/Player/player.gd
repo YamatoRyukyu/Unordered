@@ -52,7 +52,8 @@ func take_damage(damage: float):
 	health -= damage
 	if health <= 0.0:
 		health_depleted.emit()
-		
+		GameManager.last_level =level
+
 func level_up():
 	get_tree().paused = true
 	current_exp =0

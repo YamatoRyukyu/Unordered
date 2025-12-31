@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://wstvskhsbghf"]
+[gd_scene load_steps=11 format=3 uid="uid://wstvskhsbghf"]
 
 [ext_resource type="Script" uid="uid://1v7qu01cyhbb" path="res://Scenes/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Texture2D" uid="uid://dt7i5xnuxjimg" path="res://Pictures/player.png" id="1_s0eop"]
+[ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="2_t26db"]
 [ext_resource type="Resource" uid="uid://b6t61bnowwsle" path="res://Scenes/ActionDatas/Bomb/Bomb.tres" id="2_ude3g"]
 [ext_resource type="Resource" uid="uid://c8176ogcufrhg" path="res://Scenes/ActionDatas/Canon/canon.tres" id="3_4wape"]
 [ext_resource type="PackedScene" uid="uid://dgp1yv70wg6f6" path="res://Scenes/ActionGenerator/action_generator.tscn" id="3_h54ih"]
@@ -21,8 +22,8 @@ collision_layer = 2
 collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_ft8w5")
-action_resources = Array[Resource]([ExtResource("2_ude3g"), ExtResource("3_4wape"), ExtResource("4_t26db")])
-health = 100.0
+action_resources = Array[ExtResource("2_t26db")]([ExtResource("2_ude3g"), ExtResource("3_4wape"), ExtResource("4_t26db")])
+health = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
