@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5ay4q7amfuco"]
 
-[ext_resource type="Script" uid="uid://3uxuiwyinj47" path="res://Scenes/slot.gd" id="1_luhj6"]
+[ext_resource type="Script" uid="uid://3uxuiwyinj47" path="res://Scenes/ActionSlot/slot.gd" id="1_luhj6"]
 
 [node name="Slot" type="CenterContainer"]
 custom_minimum_size = Vector2(50, 50)

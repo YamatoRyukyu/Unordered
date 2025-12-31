@@ -3,8 +3,9 @@ extends CharacterBody2D
 signal health_depleted
 signal call_levelup_ui
 signal exp_update
+signal change_action(int)
 
-@export var action_resources: Array[Resource]
+@export var action_resources: Array[ActionData]
 @export var health: float
 var action_index
 var action_len
@@ -20,6 +21,7 @@ var buff_multiplier ={
 func _ready() -> void:
 	$ActionTimer.wait_time = 1.0
 	action_index =0
+	action_resources =GameManager.player_actions
 	action_len = action_resources.size()
 	
 	level =1
@@ -38,7 +40,9 @@ func _physics_process(delta):
 		rotation = direction.angle()
 
 func call_action():
-	$action_area.generate_action(action_resources[action_index])
+	change_action.emit(action_index)
+	if action_resources[action_index] != null:
+		$action_area.generate_action(action_resources[action_index])
 	action_index = (action_index +1)%action_len
 	
 func _on_action_timer_timeout() -> void:

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Unordered"
-run/main_scene="uid://7iibam0arwit"
+run/main_scene="uid://jfqc2mtjwtqw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/Singletons/game_manager.gd"
 
 [display]
 

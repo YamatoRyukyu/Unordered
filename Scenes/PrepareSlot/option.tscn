@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://c78ovv3ydeha2"]
+
+[ext_resource type="Script" uid="uid://bkspkujkceb2r" path="res://Scripts/PreparationActionSlot/option.gd" id="1_5x72r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ef1n1"]
+bg_color = Color(0, 0, 0, 0.19607843)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x72r"]
+bg_color = Color(0, 0, 0, 0.77254903)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvbr7"]
+bg_color = Color(0, 0, 0, 0.49803922)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2txe"]
+bg_color = Color(0, 0, 0, 0.18431373)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef1n1"]
+size = Vector2(100, 102)
+
+[node name="Option" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(125, 125)
+offset_right = 100.0
+offset_bottom = 100.0
+alignment_horizontal = 0
+script = ExtResource("1_5x72r")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ef1n1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5x72r")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dvbr7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k2txe")
+
+[node name="Control" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Control"]
+scale = Vector2(0.18, 0.18)
+
+[node name="AreaBox" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="CenterContainer/AreaBox"]
+visible = false
+collision_layer = 256
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterContainer/AreaBox/Area2D"]
+shape = SubResource("RectangleShape2D_ef1n1")
+
+[connection signal="button_down" from="CenterContainer/Button" to="." method="_on_button_down"]
+[connection signal="button_up" from="CenterContainer/Button" to="." method="_on_button_up"]
