@@ -5,6 +5,8 @@ var prepare_scene: PackedScene = preload("res://Scenes/GameSequence/preparation.
 var game_scene: PackedScene = preload("res://Scenes/GameSequence/survive_game.tscn")
 var game_over_scene: PackedScene = preload("res://Scenes/GameSequence/result.tscn")
 
+var save_res_path: String ="res://Datas/SaveData.tres"
+
 var player_actions:Array[ActionData]
 @export var player_action_len: int
 
