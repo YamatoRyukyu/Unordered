@@ -9,7 +9,7 @@ func _ready() -> void:
 	deck =$HBoxContainer
 	option_scene =preload("res://Scenes/PrepareSlot/option.tscn")
 	
-	var save_data =load(GameManager.save_res_path)	
+	var save_data =GameManager.save_res
 	for action in save_data.action_resources:
 		if action["is_unlocked"]:
 			var resource = load(action["path"])

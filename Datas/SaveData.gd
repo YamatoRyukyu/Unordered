@@ -2,6 +2,8 @@
 extends Resource
 class_name SaveData
 
+@export var upgrade_resource: int =0
+
 @export var action_resources: Array[Dictionary] =[
 	{
 		"path": "res://Scenes/ActionDatas/Bomb/Bomb.tres",
