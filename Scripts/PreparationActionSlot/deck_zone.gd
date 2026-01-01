@@ -9,15 +9,11 @@ func _ready() -> void:
 	deck =$HBoxContainer
 	option_scene =preload("res://Scenes/PrepareSlot/option.tscn")
 	
-	action_resources_path=[
-	"res://Scenes/ActionDatas/Bomb/Bomb.tres",
-	"res://Scenes/ActionDatas/Canon/canon.tres",
-	"res://Scenes/ActionDatas/SwingSword/sword.tres"
-	]
-	
-	for path in action_resources_path:
-		action_resources.append(load((path)))
-		
+	var save_data =load(GameManager.save_res_path)	
+	for action in save_data.action_resources:
+		if action["is_unlocked"]:
+			var resource = load(action["path"])
+			action_resources.append(resource)
 	instantiate_options()	
 		
 func instantiate_options() -> void:
