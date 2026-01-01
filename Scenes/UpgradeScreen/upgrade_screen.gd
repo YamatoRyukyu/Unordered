@@ -4,8 +4,7 @@ var upgrade_slots: HBoxContainer
 var save_data:SaveData
 
 func _ready() -> void:
-	var save_res_path =GameManager.save_res_path
-	save_data = load(save_res_path)
+	save_data = GameManager.save_res
 	
 	upgrade_slots =$HBoxContainer
 	init_upgrade_options()
