@@ -27,3 +27,7 @@ func _update_child(opt_low:String, value:int):
 	save_data.upgrades[opt_low] =value
 	
 	
+
+
+func _on_back_button_pressed() -> void:
+	GameManager.load_title_scene()

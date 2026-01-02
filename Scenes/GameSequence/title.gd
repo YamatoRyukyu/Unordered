@@ -7,3 +7,7 @@ func _on_start_button_pressed() -> void:
 
 func _on_end_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_upgrade_button_pressed() -> void:
+	GameManager.load_upgrade_scene()

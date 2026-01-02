@@ -20,9 +20,9 @@ class_name SaveData
 ]
 
 @export var upgrades: Dictionary ={
-	"health" :2,
-	"damage" :2,
-	"speed": 2,
+	"health" :1,
+	"power" :1,
+	"speed": 1,
 }
 
 func init_action_resources_lock():
