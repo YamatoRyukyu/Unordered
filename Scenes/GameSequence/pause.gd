@@ -17,4 +17,4 @@ func _on_restart_button_button_down() -> void:
 
 func _on_exit_button_button_down() -> void:
 	get_tree().paused =false
-	GameManager.load_prepare_scene()
+	GameManager.load_title_scene()

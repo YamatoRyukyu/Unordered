@@ -29,7 +29,7 @@ func _value_set():
 
 
 func _on_exit_button_button_down() -> void:
-	get_tree().quit()
+	GameManager.load_title_scene()
 
 
 func _on_restart_button_button_down() -> void:
