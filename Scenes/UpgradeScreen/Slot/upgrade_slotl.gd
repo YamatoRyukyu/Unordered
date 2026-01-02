@@ -23,8 +23,9 @@ func value_update():
 
 
 func _on_right_button_button_down() -> void:
-	if value < max_level:
+	if value < max_level and GameManager.save_res.upgrade_resource >=1:
 		value +=1
+		GameManager.save_res.upgrade_resource -=1
 		value_update()
 
 
@@ -32,4 +33,5 @@ func _on_right_button_button_down() -> void:
 func _on_left_button_button_down() -> void:
 	if value > 1:
 		value -=1
+		GameManager.save_res.upgrade_resource +=1
 		value_update()
