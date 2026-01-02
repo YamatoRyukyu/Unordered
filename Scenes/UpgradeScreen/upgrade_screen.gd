@@ -39,4 +39,5 @@ func _updata_point_label():
 	point_label.text =str(point)
 
 func _on_back_button_pressed() -> void:
+	GameManager.save_game_data()
 	GameManager.load_title_scene()

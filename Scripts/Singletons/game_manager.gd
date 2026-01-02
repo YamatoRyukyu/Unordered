@@ -6,7 +6,8 @@ var game_scene_path: String = "res://Scenes/GameSequence/survive_game.tscn"
 var game_over_scene_path: String = "res://Scenes/GameSequence/result.tscn"
 var upgrade_scene_path: String = "res://Scenes/UpgradeScreen/upgrade_screen.tscn"
 
-var save_res_path: String ="res://Datas/SaveData.tres"
+var inited_save_res_path: String ="res://Datas/InitedSaveData.tres"
+var save_res_path: String ="user://SaveData.tres"
 var save_res: SaveData
 
 var player_actions:Array[ActionData]
@@ -20,27 +21,36 @@ func _ready() -> void:
 	player_action_len =3
 	survive_time =0
 	last_level =0
+	
 	load_save_data()
-
+	
 func load_title_scene():
-	var title_scene: PackedScene =load(title_scene_path)
-	get_tree().change_scene_to_packed(title_scene)
+	get_tree().change_scene_to_file(title_scene_path)
 
 func load_prepare_scene():
-	var prepare_scene: PackedScene =load(prepare_scene_path)
-	get_tree().change_scene_to_packed(prepare_scene)
+	get_tree().change_scene_to_file(prepare_scene_path)
 	
 func load_game_scene():
-	var game_scene: PackedScene =load(game_scene_path)	
-	get_tree().change_scene_to_packed(game_scene)
+	get_tree().change_scene_to_file(game_scene_path)
 
 func load_game_over_scene():
-	var game_over_scene: PackedScene =load(game_over_scene_path)
-	get_tree().change_scene_to_packed(game_over_scene)
-	
+	get_tree().change_scene_to_file(game_over_scene_path)
+
 func load_upgrade_scene():
-	var upgrade_scene: PackedScene =load(upgrade_scene_path)
-	get_tree().change_scene_to_packed(upgrade_scene)	
+	get_tree().change_scene_to_file(upgrade_scene_path)
 
 func load_save_data():
-	save_res =load(save_res_path)
+	if ResourceLoader.exists(save_res_path):
+		save_res =ResourceLoader.load(save_res_path) as SaveData
+	else :
+		init_save_data()
+	
+func save_game_data():
+	ResourceSaver.save(save_res, save_res_path)
+
+func init_save_data():
+	if ResourceLoader.exists(inited_save_res_path):
+		var template_data = ResourceLoader.load(inited_save_res_path)
+		save_res =template_data.duplicate(true)
+	else :
+		save_res =SaveData.new()
