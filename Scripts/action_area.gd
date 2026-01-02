@@ -6,7 +6,7 @@ var buff_multiplier ={
 	"action_quantity":1.0
 }
 
-func generate_action(action_data: ActionData):
+func generate_action(action_data: ActionData, power: float):
 	var action_scene: PackedScene = action_data.action_scene
 
 	for i in range(buff_multiplier["action_quantity"]):
@@ -20,6 +20,8 @@ func generate_action(action_data: ActionData):
 		
 		var angle = 360.0 / buff_multiplier["action_quantity"] * i
 		action_instance.global_rotation_degrees = angle + global_rotation_degrees
+		
+		action_instance.base_attack_damage *= power
 		
 		get_tree().root.add_child(action_instance)
 

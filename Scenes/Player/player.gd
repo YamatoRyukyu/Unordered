@@ -6,13 +6,21 @@ signal exp_update
 signal change_action(int)
 
 @export var action_resources: Array[ActionData]
-@export var health: float
 var action_index
 var action_len
+
+var health: float
+var speed: float
+var power: float
+@export var base_health: float =100.0
+@export var base_speed: float =600.0
+@export var base_power: float =1.0
 
 var level:int
 var current_exp:int
 var exp_to_next_level:int
+
+
 
 var buff_multiplier ={
 	"orb_magnet":1.0
@@ -28,10 +36,20 @@ func _ready() -> void:
 	current_exp =0
 	exp_to_next_level =10
 	_exp_update_signal()
+	apply_upgrade()
+	
+func apply_upgrade():
+	var add_by_upgrade =50
+	var upgrade_dic :Dictionary =GameManager.save_res.upgrades
+	
+	#level starts at 1, so minus 1 to set buff 0
+	health =base_health + (upgrade_dic["health"] -1)* add_by_upgrade
+	speed =base_speed + (upgrade_dic["speed"] -1)* add_by_upgrade
+	power =base_power + (upgrade_dic["power"] -1)
+	
 	
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right","move_up", "move_down")
-	var speed = 600.0
 	velocity = direction * speed
 	move_and_slide()
 
@@ -42,7 +60,7 @@ func _physics_process(delta):
 func call_action():
 	change_action.emit(action_index)
 	if action_resources[action_index] != null:
-		$action_area.generate_action(action_resources[action_index])
+		$action_area.generate_action(action_resources[action_index], power)
 	action_index = (action_index +1)%action_len
 	
 func _on_action_timer_timeout() -> void:

@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://jv67x246yb4y"]
+[gd_scene load_steps=8 format=3 uid="uid://jv67x246yb4y"]
 
 [ext_resource type="Script" uid="uid://y82wquwvw751" path="res://Scenes/UpgradeScreen/upgrade_screen.gd" id="1_pd41s"]
 [ext_resource type="PackedScene" uid="uid://djq5g12d6dbl6" path="res://Scenes/UpgradeScreen/Slot/upgrade_slotl.tscn" id="2_6dfda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dfda"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36xng"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3lmd"]
+bg_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3wjl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5au2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="UpgradeScreen" type="CanvasLayer"]
 script = ExtResource("1_pd41s")
@@ -42,8 +78,34 @@ option_text = "HEALTH"
 
 [node name="UpgradeSlotl2" parent="HBoxContainer" instance=ExtResource("2_6dfda")]
 layout_mode = 2
-option_text = "DAMAGE"
+option_text = "POWER"
 
 [node name="UpgradeSlotl3" parent="HBoxContainer" instance=ExtResource("2_6dfda")]
 layout_mode = 2
 option_text = "SPEED"
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -138.0
+offset_right = 146.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_6dfda")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_36xng")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s3lmd")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_e3wjl")
+theme_override_styles/focus = SubResource("StyleBoxFlat_v5au2")
+text = "BACK"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
