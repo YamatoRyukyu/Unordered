@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://rk7dd6ym3uyb"]
+
+[ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_c5vmv"]
+[ext_resource type="Script" uid="uid://n8c3wgaf3ueu" path="res://Scenes/ActionDatas/Bullet/bullet.gd" id="2_nb44r"]
+[ext_resource type="Texture2D" uid="uid://cii5uqa2dtyvf" path="res://Pictures/bullet.png" id="3_m4xt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j374f"]
+size = Vector2(42, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5vmv"]
+
+[node name="Area2D" instance=ExtResource("1_c5vmv")]
+rotation = -1.0760924
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("2_nb44r")
+base_attack_distance = 300.0
+attack_speed = 500.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_j374f")
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_m4xt4")
+
+[node name="DetectArea" type="Area2D" parent="." index="1"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="DetectCollision" type="CollisionShape2D" parent="DetectArea" index="0"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_c5vmv")
