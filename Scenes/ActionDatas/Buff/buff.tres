@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=4 format=3 uid="uid://dqwepu4cws7p"]
+
+[ext_resource type="PackedScene" uid="uid://dy2a8fbu2umnj" path="res://Scenes/ActionDatas/Buff/buff.tscn" id="1_07t6b"]
+[ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_frcbu"]
+[ext_resource type="Texture2D" uid="uid://bw0ixqqrjj82x" path="res://Pictures/Arrow/上矢印.png" id="2_r0071"]
+
+[resource]
+script = ExtResource("1_frcbu")
+icon = ExtResource("2_r0071")
+name = "buff"
+action_scene = ExtResource("1_07t6b")
+is_unlocked = true
+metadata/_custom_type_script = "uid://cqwhybigt83k6"

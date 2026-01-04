@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var base_attack_damage: float =10.0
+@export var base_buff_amount: float =1.0
 @export var base_attack_distance: float = 3000.0
 @export_range(0, 360, 1.0, "hide_slider") var base_attack_rotation: int =45
 @export var attack_speed: float =2500.0

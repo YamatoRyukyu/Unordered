@@ -20,6 +20,10 @@ class_name SaveData
 	{
 		"path": "res://Scenes/ActionDatas/Bullet/bullet.tres",
 		"is_unlocked": true
+	},
+	{
+		"path": "res://Scenes/ActionDatas/Buff/buff.tres",
+		"is_unlocked": true
 	}
 ]
 
