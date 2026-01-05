@@ -58,10 +58,14 @@ func _physics_process(delta):
 		rotation = direction.angle()
 
 func call_action():
+	if action_index ==0:
+		$action_area.reset_action_multiplier()
+	
 	change_action.emit(action_index)
 	if action_resources[action_index] != null:
 		$action_area.generate_action(action_resources[action_index], power)
 	action_index = (action_index +1)%action_len
+	
 	
 func _on_action_timer_timeout() -> void:
 	call_action()

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=4 format=3 uid="uid://bu83ssk0twj33"]
+
+[ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_as3c0"]
+[ext_resource type="PackedScene" uid="uid://rk7dd6ym3uyb" path="res://Scenes/ActionDatas/Bullet/bullet.tscn" id="1_wvtrd"]
+[ext_resource type="Texture2D" uid="uid://cii5uqa2dtyvf" path="res://Pictures/bullet.png" id="2_4bkgf"]
+
+[resource]
+script = ExtResource("1_as3c0")
+icon = ExtResource("2_4bkgf")
+action_scene = ExtResource("1_wvtrd")
+is_unlocked = true
+metadata/_custom_type_script = "uid://cqwhybigt83k6"

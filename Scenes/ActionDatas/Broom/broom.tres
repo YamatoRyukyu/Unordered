@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ActionData" load_steps=4 format=3 uid="uid://c3nsxpicuw1dx"]
+
+[ext_resource type="PackedScene" uid="uid://dc7t505t6qfjl" path="res://Scenes/ActionDatas/Broom/broom.tscn" id="1_f2ktd"]
+[ext_resource type="Script" uid="uid://cqwhybigt83k6" path="res://Datas/Action_Data.gd" id="1_vnscc"]
+[ext_resource type="Texture2D" uid="uid://lbvfd7xwa4mw" path="res://Pictures/ホウキ_60.png" id="2_7dvhf"]
+
+[resource]
+script = ExtResource("1_vnscc")
+icon = ExtResource("2_7dvhf")
+name = "broom"
+action_scene = ExtResource("1_f2ktd")
+is_unlocked = true
+metadata/_custom_type_script = "uid://cqwhybigt83k6"

@@ -23,6 +23,8 @@ func _ready() -> void:
 	last_level =0
 	
 	load_save_data()
+	save_res.init_action_resources_lock()
+	save_game_data()
 	
 func load_title_scene():
 	get_tree().change_scene_to_file(title_scene_path)
