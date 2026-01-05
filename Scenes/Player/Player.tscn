@@ -23,6 +23,7 @@ collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_ft8w5")
 action_resources = Array[ExtResource("2_t26db")]([ExtResource("2_ude3g"), ExtResource("3_4wape"), ExtResource("4_t26db")])
+base_health = 99999.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

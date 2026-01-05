@@ -33,3 +33,5 @@ collision_mask = 4
 [node name="DetectCollision" type="CollisionShape2D" parent="DetectArea" index="0"]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_c5vmv")
+
+[connection signal="touched_enemy" from="." to="." method="_on_touched_enemy"]
