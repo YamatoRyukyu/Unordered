@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7iibam0arwit"]
+[gd_scene load_steps=11 format=3 uid="uid://7iibam0arwit"]
 
 [ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/GameSequence/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://eo11qkw78wp1" path="res://Scenes/ActionSlot/action_slot.tscn" id="4_am3ab"]
 [ext_resource type="Script" uid="uid://dv0vjuq65lx2t" path="res://Scenes/EXP/exp_manager.gd" id="4_d1rg3"]
 [ext_resource type="PackedScene" uid="uid://cexra37nm8rue" path="res://Scenes/LevelUpUI/LevelUpUI.tscn" id="5_t1jgj"]
+[ext_resource type="PackedScene" uid="uid://bbs5bai551n12" path="res://Scenes/MobSpawner/mob_spawner.tscn" id="7_kfp1y"]
 
 [sub_resource type="Curve2D" id="Curve2D_d1rg3"]
 _data = {
@@ -41,14 +42,16 @@ scale = Vector2(0.1, 0.1)
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="Player/BackGround"]
-offset_left = 7.0
-offset_right = 1189.0
-offset_bottom = 662.0
-color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Path2D" type="Path2D" parent="Player"]
-position = Vector2(-6456.406, -3860.4595)
-scale = Vector2(10.670714, 12.237189)
+position = Vector2(-15510, -8120)
+scale = Vector2(25.256, 28.963)
 curve = SubResource("Curve2D_d1rg3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
@@ -67,7 +70,7 @@ offset_top = 3.0517578e-05
 
 [node name="spawn_timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.3
+wait_time = 1.8319999999999999
 autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -129,6 +132,9 @@ relative = Vector2(0, 50)
 
 [node name="ExpManager" type="Node2D" parent="."]
 script = ExtResource("4_d1rg3")
+
+[node name="MobSpawner" parent="." instance=ExtResource("7_kfp1y")]
+unique_name_in_owner = true
 
 [connection signal="call_levelup_ui" from="Player" to="Player/UI/LevelUPUI" method="_on_player_call_levelup_ui"]
 [connection signal="change_action" from="Player" to="HUD/ActionSlot" method="_on_player_change_action"]

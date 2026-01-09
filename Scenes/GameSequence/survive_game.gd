@@ -3,18 +3,17 @@ extends Node2D
 var time_count: int
 var pause_scene: PackedScene
 
+@export_range(0, 4096, 0.001) var spawn_span: float =0.5
+
 func _ready() -> void:
-	var spawn_span = 0.3
 	%spawn_timer.wait_time = spawn_span
 	time_count =0
 	pause_scene =preload("res://Scenes/GameSequence/pause.tscn")
 	_timer_to_watch()
 
 func spawn_mob():
-	var new_mob = preload("res://Scenes/Mobs/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
-	new_mob.global_position = %PathFollow2D.global_position
-	add_child(new_mob)
+	%MobSpawner.spawn(%PathFollow2D.global_position, %Player.level)
 	
 	
 func _on_timer_timeout() -> void:

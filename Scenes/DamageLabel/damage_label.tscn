@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dksjwlvyld5ck"]
+
+[ext_resource type="Script" uid="uid://oo8hi6u74pp3" path="res://Scenes/DamageLabel/damage_label.gd" id="1_qjl8y"]
+
+[node name="DamageLabel" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -336.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "100000"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_qjl8y")
+
+[node name="DamageDisplayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DamageDisplayTimer" to="." method="_on_damage_display_timer_timeout"]
