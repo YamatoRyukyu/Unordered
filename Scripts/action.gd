@@ -29,3 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_touched_enemy():
 	pass
+
+
+func setup_collision(target_mask: int):
+	collision_mask =target_mask

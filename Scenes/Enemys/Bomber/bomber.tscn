@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://7jphtmeyishh"]
+
+[ext_resource type="PackedScene" uid="uid://ijbuq3dcbl5u" path="res://Scenes/Enemys/EnemyBase/enemy_base.tscn" id="1_uhmw8"]
+[ext_resource type="Script" uid="uid://dmlha7r0opots" path="res://Scenes/Enemys/Bomber/bomber.gd" id="2_pcwj2"]
+[ext_resource type="Texture2D" uid="uid://q8k1klm7h2f8" path="res://Pictures/bomber.png" id="2_xkdmg"]
+[ext_resource type="PackedScene" uid="uid://b3lt5xeqjytxk" path="res://Scenes/Particles/Explosion/explosion.tscn" id="4_id505"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pcwj2"]
+radius = 159.11317
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id505"]
+radius = 370.54013
+
+[sub_resource type="Curve" id="Curve_c5o74"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_07347"]
+width = 270
+curve = SubResource("Curve_c5o74")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ido2v"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+spread = 180.0
+radial_velocity_min = -1000.0
+radial_velocity_max = 999.99994
+gravity = Vector3(0, 0, 0)
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_07347")
+color = Color(1, 0.54509807, 0.16078432, 1)
+hue_variation_min = -0.19000001
+hue_variation_max = 0.12999998
+turbulence_enabled = true
+
+[node name="EnemyBase" instance=ExtResource("1_uhmw8")]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("2_pcwj2")
+base_power = 50.0
+speed = 50.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_pcwj2")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_xkdmg")
+
+[node name="ExplosionArea" type="Area2D" parent="." index="3"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea" index="0"]
+shape = SubResource("CircleShape2D_id505")
+debug_color = Color(0.9805924, 0, 0.382344, 0.41960785)
+
+[node name="ExplosionParticle" parent="." index="4" instance=ExtResource("4_id505")]
+process_material = SubResource("ParticleProcessMaterial_ido2v")

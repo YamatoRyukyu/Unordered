@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhorosdvjk1dm"]
+
+[ext_resource type="PackedScene" uid="uid://ijbuq3dcbl5u" path="res://Scenes/Enemys/EnemyBase/enemy_base.tscn" id="1_hb33v"]
+[ext_resource type="Texture2D" uid="uid://cr2aischprjym" path="res://Pictures/Gunner.png" id="2_78lxn"]
+[ext_resource type="Script" uid="uid://0icxl7gxeug7" path="res://Scenes/Enemys/Gunner/gunner.gd" id="2_o63us"]
+[ext_resource type="Resource" uid="uid://c8176ogcufrhg" path="res://Scenes/ActionDatas/Canon/canon.tres" id="3_vhq7k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o63us"]
+radius = 140.08926
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhq7k"]
+size = Vector2(500, 108)
+
+[node name="Gunner" instance=ExtResource("1_hb33v")]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_o63us")
+shoot_scene = ExtResource("3_vhq7k")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_o63us")
+
+[node name="RangePointer" type="ColorRect" parent="." index="1"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" parent="." index="2"]
+texture = ExtResource("2_78lxn")
+
+[node name="DetectArea" type="Area2D" parent="." index="4"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea" index="0"]
+position = Vector2(241, 0)
+shape = SubResource("RectangleShape2D_vhq7k")
+debug_color = Color(0.97891766, 0, 0.39612246, 0.41960785)

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export_flags_2d_physics var attack_target_mask: int
+
 var buff_multiplier ={
 	"range":1.0,
 	"size":1.0,
@@ -13,6 +15,10 @@ func generate_action(action_data: ActionData, power: float):
 
 	for i in range(buff_multiplier["action_quantity"]):
 		var action_instance = action_scene.instantiate()
+		
+		if action_instance.has_method("setup_collision"):
+			action_instance.setup_collision(attack_target_mask)
+
 		
 		var player =get_parent()
 		if action_instance.has_method("_on_player_change_action"):

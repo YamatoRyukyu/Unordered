@@ -17,13 +17,13 @@ size = Vector2(593, 594)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ude3g"]
 radius = 2531.024
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 21
 motion_mode = 1
 script = ExtResource("1_ft8w5")
 action_resources = Array[ExtResource("2_t26db")]([ExtResource("2_ude3g"), ExtResource("3_4wape"), ExtResource("4_t26db")])
-base_health = 99999.0
+base_health = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -38,6 +38,7 @@ texture = ExtResource("1_s0eop")
 autostart = true
 
 [node name="action_area" parent="." instance=ExtResource("3_h54ih")]
+attack_target_mask = 20
 
 [node name="damage_area" type="Area2D" parent="."]
 unique_name_in_owner = true

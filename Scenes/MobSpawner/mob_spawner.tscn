@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbs5bai551n12"]
+
+[ext_resource type="Script" uid="uid://cohpbvdjc72bb" path="res://Scenes/MobSpawner/mob_spawner.gd" id="1_vcd78"]
+[ext_resource type="PackedScene" uid="uid://klqctaar6dca" path="res://Scenes/Enemys/Sticky/sticky.tscn" id="2_px85r"]
+[ext_resource type="PackedScene" uid="uid://7jphtmeyishh" path="res://Scenes/Enemys/Bomber/bomber.tscn" id="3_mjxm6"]
+[ext_resource type="PackedScene" uid="uid://bhorosdvjk1dm" path="res://Scenes/Enemys/Gunner/gunner.tscn" id="4_mjxm6"]
+
+[node name="MobSpawner" type="Node"]
+script = ExtResource("1_vcd78")
+enemy_scenes = Array[PackedScene]([ExtResource("4_mjxm6"), ExtResource("2_px85r"), ExtResource("3_mjxm6")])

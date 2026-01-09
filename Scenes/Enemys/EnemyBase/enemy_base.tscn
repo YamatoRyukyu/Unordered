@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ijbuq3dcbl5u"]
+
+[ext_resource type="PackedScene" uid="uid://dgp1yv70wg6f6" path="res://Scenes/ActionGenerator/action_generator.tscn" id="2_lcq48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4wq1"]
+
+[node name="EnemyBase" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 11
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f4wq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="action_area" parent="." instance=ExtResource("2_lcq48")]
+attack_target_mask = 2
