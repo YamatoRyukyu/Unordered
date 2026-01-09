@@ -33,6 +33,7 @@ shape = SubResource("RectangleShape2D_ft8w5")
 texture = ExtResource("1_s0eop")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [node name="ActionTimer" type="Timer" parent="."]
 autostart = true

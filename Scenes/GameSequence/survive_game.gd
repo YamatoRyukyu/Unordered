@@ -3,8 +3,9 @@ extends Node2D
 var time_count: int
 var pause_scene: PackedScene
 
+@export_range(0, 4096, 0.001) var spawn_span: float =0.5
+
 func _ready() -> void:
-	var spawn_span = 0.3
 	%spawn_timer.wait_time = spawn_span
 	time_count =0
 	pause_scene =preload("res://Scenes/GameSequence/pause.tscn")
