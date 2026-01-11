@@ -23,7 +23,12 @@ func _ready() -> void:
 	last_level =0
 	
 	load_save_data()
-	save_res.init_action_resources_lock()
+	save_res.init_action_dictionary()
+	
+	save_res.unlock_action("bullet")
+	save_res.unlock_action("buff")
+	save_res.unlock_action("sword")
+	
 	save_game_data()
 	
 func load_title_scene():
@@ -47,6 +52,11 @@ func load_save_data():
 	else :
 		init_save_data()
 	
+func unlock_action(name: String) -> void:
+	print(save_res.is_action_unlocked(name))
+	if not save_res.is_action_unlocked(name):
+		save_res.unlock_action(name)	
+
 func save_game_data():
 	ResourceSaver.save(save_res, save_res_path)
 

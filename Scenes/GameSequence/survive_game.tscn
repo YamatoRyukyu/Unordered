@@ -70,7 +70,7 @@ offset_top = 3.0517578e-05
 
 [node name="spawn_timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.8319999999999999
+wait_time = 1.832
 autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="."]

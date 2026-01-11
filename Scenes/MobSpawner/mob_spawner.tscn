@@ -7,4 +7,4 @@
 
 [node name="MobSpawner" type="Node"]
 script = ExtResource("1_vcd78")
-enemy_scenes = Array[PackedScene]([ExtResource("4_mjxm6"), ExtResource("2_px85r"), ExtResource("3_mjxm6")])
+enemy_scenes = Array[PackedScene]([ExtResource("2_px85r"), ExtResource("3_mjxm6"), ExtResource("4_mjxm6")])

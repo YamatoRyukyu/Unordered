@@ -10,7 +10,7 @@ func _ready() -> void:
 	option_scene =preload("res://Scenes/PrepareSlot/option.tscn")
 	
 	var save_data =GameManager.save_res
-	for action in save_data.action_resources:
+	for action in save_data.action_resource_dicts:
 		if action["is_unlocked"]:
 			var resource = load(action["path"])
 			action_resources.append(resource)
@@ -18,11 +18,10 @@ func _ready() -> void:
 		
 func instantiate_options() -> void:
 	for resource in action_resources:
-		if resource.is_unlocked:
-			var option_instance =option_scene.instantiate()
-			option_instance.action =resource
-			option_instance.texture =resource.icon
-			deck.add_child(option_instance)
+		var option_instance =option_scene.instantiate()
+		option_instance.action =resource
+		option_instance.texture =resource.icon
+		deck.add_child(option_instance)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var option:Control =area.get_parent().get_parent().get_parent()
