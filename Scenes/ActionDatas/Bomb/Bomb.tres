@@ -7,7 +7,6 @@
 [resource]
 script = ExtResource("1_o3sx8")
 icon = ExtResource("2_baep5")
-name = "Bomb"
+name = "bomb"
 action_scene = ExtResource("1_kybom")
-is_unlocked = true
 metadata/_custom_type_script = "uid://cqwhybigt83k6"

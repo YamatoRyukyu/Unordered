@@ -7,8 +7,9 @@ func _ready() -> void:
 	target = self
 
 func _physics_process(delta: float) -> void:
-	var direction = global_position.direction_to(target.global_position)
-	global_position += direction * move_speed * delta
+	if target:
+		var direction = global_position.direction_to(target.global_position)
+		global_position += direction * move_speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
 	body.get_exp()

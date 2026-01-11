@@ -9,5 +9,4 @@ script = ExtResource("1_vnscc")
 icon = ExtResource("2_7dvhf")
 name = "broom"
 action_scene = ExtResource("1_f2ktd")
-is_unlocked = true
 metadata/_custom_type_script = "uid://cqwhybigt83k6"

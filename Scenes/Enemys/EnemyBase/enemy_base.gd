@@ -1,11 +1,13 @@
 class_name EnemyBase
 extends CharacterBody2D
 
-@export var base_max_health: float =10.0
+@export var base_max_health: float =1.0
 @export var base_power: float =5.0
 @export var speed: float =150.0
 @export var fricion: float =0.1
 @export var xp_amount: int =1
+
+@export var unlock_action_name: String =""
 
 var health: float
 var knockback_velocity: Vector2 =Vector2.ZERO
@@ -57,6 +59,9 @@ func _calc_movement(delta: float) -> Vector2:
 func _process_attack(delta: float) -> void:
 	pass
 	
+func unlock_action() -> void:
+	GameManager.unlock_action(unlock_action_name)
+	
 func take_damage(damage: float) ->void:
 	health -= damage
 	_damage_timer_setting(damage)
@@ -65,6 +70,7 @@ func take_damage(damage: float) ->void:
 		die()
 
 func die() ->void:
+	unlock_action()
 	if exp_manager:
 		exp_manager.spawn(global_position, xp_amount)
 	queue_free()

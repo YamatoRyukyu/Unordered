@@ -15,6 +15,7 @@ size = Vector2(500, 108)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_o63us")
 shoot_scene = ExtResource("3_vhq7k")
+unlock_action_name = "canon"
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_o63us")
