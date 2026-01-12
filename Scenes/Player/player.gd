@@ -9,6 +9,8 @@ signal change_action(int)
 var action_index
 var action_len
 
+@export var action_rate: float =0.6
+
 var health: float
 var speed: float
 var power: float
@@ -27,7 +29,7 @@ var buff_multiplier ={
 }
 
 func _ready() -> void:
-	$ActionTimer.wait_time = 1.0
+	$ActionTimer.wait_time = action_rate
 	action_index =0
 	action_resources =GameManager.player_actions
 	action_len = action_resources.size()

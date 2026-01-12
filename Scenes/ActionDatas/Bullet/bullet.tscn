@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://rk7dd6ym3uyb"]
+[gd_scene load_steps=7 format=3 uid="uid://rk7dd6ym3uyb"]
 
 [ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_c5vmv"]
 [ext_resource type="Script" uid="uid://n8c3wgaf3ueu" path="res://Scenes/ActionDatas/Bullet/bullet.gd" id="2_nb44r"]
+[ext_resource type="AudioStream" uid="uid://dyy0vfuwrujrm" path="res://Audios/SE/Bullet/輪ゴム弾・ゴム銃.mp3" id="3_j374f"]
 [ext_resource type="Texture2D" uid="uid://cii5uqa2dtyvf" path="res://Pictures/bullet.png" id="3_m4xt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j374f"]
@@ -15,8 +16,12 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource("2_nb44r")
 base_attack_damage = 100.0
+base_buff_amount = 1.0
 base_attack_distance = 300.0
+base_attack_rotation = 45
 attack_speed = 500.0
+knockback_force = 0.0
+se = ExtResource("3_j374f")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_j374f")

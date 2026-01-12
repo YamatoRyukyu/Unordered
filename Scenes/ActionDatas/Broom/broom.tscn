@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc7t505t6qfjl"]
+[gd_scene load_steps=6 format=3 uid="uid://dc7t505t6qfjl"]
 
 [ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_5oyq0"]
 [ext_resource type="Script" uid="uid://r8ppq3cqx4ff" path="res://Scenes/ActionDatas/Broom/broom.gd" id="2_nlal2"]
 [ext_resource type="Texture2D" uid="uid://dlol1cnq80lkc" path="res://Pictures/ホウキ.png" id="2_xbqbi"]
+[ext_resource type="AudioStream" uid="uid://cpcdfv2fgbo4m" path="res://Audios/SE/Broom/maou_se_sound_ignition02.mp3" id="3_ma6qs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlal2"]
 size = Vector2(398, 135)
 
 [node name="Area2D" instance=ExtResource("1_5oyq0")]
-collision_layer = 0
-collision_mask = 0
 script = ExtResource("2_nlal2")
 base_attack_damage = 0.0
+base_buff_amount = 1.0
 base_attack_distance = 600.0
+base_attack_rotation = 45
 attack_speed = 500.0
 knockback_force = 5000.0
+se = ExtResource("3_ma6qs")
 
 [node name="Sprite2D" parent="CollisionShape2D" index="0"]
 scale = Vector2(1.0100001, 1)

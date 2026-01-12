@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://k1threoy8t00" path="res://Pictures/enemy1.png" id="3_k75db"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k75db"]
-radius = 270.1851
+radius = 249.99997
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhd3p"]
 
@@ -22,6 +22,8 @@ debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
 texture = ExtResource("3_k75db")
 
 [node name="AttackZone" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone" index="0"]
 scale = Vector2(26.875, 26.875)

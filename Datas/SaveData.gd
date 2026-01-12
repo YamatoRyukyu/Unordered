@@ -39,7 +39,6 @@ func unlock_action(action_name: String):
 	for action in action_resource_dicts:
 		if action["name"] == action_name:
 			action["is_unlocked"] =true
-			print(action.name,"unlocked")
 			return
 	return
 			

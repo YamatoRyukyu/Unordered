@@ -14,7 +14,8 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	global_rotation =0.0
-	global_position =follow.global_position +dist_to_follow
+	if follow:
+		global_position =follow.global_position +dist_to_follow
 	
 	if base_size != scale:
 		scale =base_size

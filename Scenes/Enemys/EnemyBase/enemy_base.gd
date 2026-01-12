@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var xp_amount: int =1
 
 @export var unlock_action_name: String =""
+@onready var damage_se: AudioStream =preload("res://Audios/SE/EnemyDamage/maou_se_sound16.mp3")
 
 var health: float
 var knockback_velocity: Vector2 =Vector2.ZERO
@@ -64,6 +65,7 @@ func unlock_action() -> void:
 	
 func take_damage(damage: float) ->void:
 	health -= damage
+	AudioManager.play_sfx(damage_se, global_position)
 	_damage_timer_setting(damage)
 	
 	if health <= 0:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7ip11hfvoh4k"]
+[gd_scene load_steps=9 format=3 uid="uid://c7ip11hfvoh4k"]
 
 [ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_q0avp"]
 [ext_resource type="Texture2D" uid="uid://bloxfju2tp5w1" path="res://Pictures/sight.png" id="2_8a5ev"]
 [ext_resource type="Script" uid="uid://tkv7ddvodfke" path="res://Scenes/ActionDatas/Bomb/bomb.gd" id="2_c5o74"]
+[ext_resource type="AudioStream" uid="uid://dyy0vfuwrujrm" path="res://Audios/SE/Bullet/輪ゴム弾・ゴム銃.mp3" id="3_e1hii"]
 [ext_resource type="PackedScene" uid="uid://b3lt5xeqjytxk" path="res://Scenes/Particles/Explosion/explosion.tscn" id="4_07347"]
 
 [sub_resource type="Curve" id="Curve_c5o74"]
@@ -37,6 +38,7 @@ base_attack_distance = 300.0
 base_attack_rotation = 45
 attack_speed = 1.0
 knockback_force = 0.0
+se = ExtResource("3_e1hii")
 
 [node name="CollisionShape2D" parent="." index="0"]
 disabled = true

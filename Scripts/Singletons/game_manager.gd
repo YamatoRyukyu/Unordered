@@ -26,12 +26,13 @@ func _ready() -> void:
 	save_res.init_action_dictionary()
 	
 	save_res.unlock_action("bullet")
-	save_res.unlock_action("buff")
-	save_res.unlock_action("sword")
+	save_res.unlock_action("bomb")
+	save_res.unlock_action("broom")
 	
 	save_game_data()
 	
 func load_title_scene():
+	AudioManager.stop_bgm()
 	get_tree().change_scene_to_file(title_scene_path)
 
 func load_prepare_scene():
@@ -53,7 +54,6 @@ func load_save_data():
 		init_save_data()
 	
 func unlock_action(name: String) -> void:
-	print(save_res.is_action_unlocked(name))
 	if not save_res.is_action_unlocked(name):
 		save_res.unlock_action(name)	
 
