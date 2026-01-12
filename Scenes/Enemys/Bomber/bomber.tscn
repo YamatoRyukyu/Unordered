@@ -36,7 +36,6 @@ turbulence_enabled = true
 [node name="EnemyBase" instance=ExtResource("1_uhmw8")]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_pcwj2")
-base_power = 50.0
 speed = 500.0
 unlock_action_name = "bomb"
 

@@ -4,11 +4,13 @@ var time_count: int
 var pause_scene: PackedScene
 
 @export_range(0, 4096, 0.001) var spawn_span: float =0.5
+@export var BGM: AudioStream
 
 func _ready() -> void:
 	%spawn_timer.wait_time = spawn_span
 	time_count =0
 	pause_scene =preload("res://Scenes/GameSequence/pause.tscn")
+	AudioManager.play_bgm(BGM, 0.0)
 	_timer_to_watch()
 
 func spawn_mob():
@@ -21,8 +23,10 @@ func _on_timer_timeout() -> void:
 
 
 func _on_player_health_depleted() -> void:
+	AudioManager.stop_bgm()
 	GameManager.survive_time =time_count
 	GameManager.load_game_over_scene()
+	queue_free()
 
 func _on_player_exp_update(current:float, next:float, level:float) -> void:
 	%ExpBar.max_value = next

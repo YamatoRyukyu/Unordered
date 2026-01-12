@@ -9,19 +9,23 @@ signal touched_enemy
 @export var attack_speed: float =2500.0
 @export var knockback_force :float =0.0
 
+@export var se: AudioStream
+
 var player: Node2D
 
 func _ready() -> void:
 	player = get_tree().root.get_node("Game/Player")
 	connect("body_entered", _on_body_entered)
-	connect("touched_enemy", _on_touched_enemy)
+	#connect("touched_enemy", _on_touched_enemy)
+	play_action_se()
+
+func play_action_se():
+	AudioManager.play_sfx(se, global_position)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
-		var action_area = player.get_node("action_area")
-		if action_area.has_method("calc_damage"):
-			action_area.calc_damage(body, base_attack_damage)
-			touched_enemy.emit()
+		body.take_damage(base_attack_damage)
+		touched_enemy.emit()
 			
 	if body.has_method("apply_knockback"):
 		var direction =(body.global_position - global_position).normalized()

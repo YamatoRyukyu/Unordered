@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://7iibam0arwit"]
+[gd_scene load_steps=12 format=3 uid="uid://7iibam0arwit"]
 
 [ext_resource type="Script" uid="uid://x82fgm2dlvrh" path="res://Scenes/GameSequence/survive_game.gd" id="1_40q2b"]
 [ext_resource type="PackedScene" uid="uid://wstvskhsbghf" path="res://Scenes/Player/Player.tscn" id="1_74p8y"]
+[ext_resource type="AudioStream" uid="uid://c2ewqk44hg8su" path="res://Audios/BGM/bit-bit-loop-127680.mp3" id="2_ih4h7"]
 [ext_resource type="PackedScene" uid="uid://duy05ssb45hrk" path="res://Scenes/HUD/hp_bar.tscn" id="3_40q2b"]
 [ext_resource type="PackedScene" uid="uid://eo11qkw78wp1" path="res://Scenes/ActionSlot/action_slot.tscn" id="4_am3ab"]
 [ext_resource type="Script" uid="uid://dv0vjuq65lx2t" path="res://Scenes/EXP/exp_manager.gd" id="4_d1rg3"]
@@ -32,6 +33,7 @@ border_color = Color(0.36862746, 0.36862746, 0.36862746, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_40q2b")
+BGM = ExtResource("2_ih4h7")
 
 [node name="Player" parent="." instance=ExtResource("1_74p8y")]
 unique_name_in_owner = true

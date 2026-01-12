@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7q3e3hmm234i"]
+[gd_scene load_steps=6 format=3 uid="uid://c7q3e3hmm234i"]
 
 [ext_resource type="PackedScene" uid="uid://dghc1ei1q2aew" path="res://Scenes/ActionDatas/ActionBase.tscn" id="1_10thk"]
 [ext_resource type="Script" uid="uid://dm5j5xx3nmwp5" path="res://Scenes/ActionDatas/SwingSword/sword.gd" id="2_ayi66"]
 [ext_resource type="Texture2D" uid="uid://b4yrvowxye0ed" path="res://Pictures/action_sword.png" id="2_woq7k"]
+[ext_resource type="AudioStream" uid="uid://dr72bs8fabedr" path="res://Audios/SE/Sword/剣の素振り2.mp3" id="3_ayi66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10thk"]
 size = Vector2(310, 70)
@@ -18,6 +19,7 @@ base_attack_distance = 3000.0
 base_attack_rotation = 45
 attack_speed = 500.0
 knockback_force = 3000.0
+se = ExtResource("3_ayi66")
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false
