@@ -120,6 +120,21 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_j5eqk")
 theme_override_styles/focus = SubResource("StyleBoxFlat_b8cf6")
 text = "RESTART"
 
+[node name="SettingButton" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_xel1c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tpp1l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ji6u")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_j5eqk")
+theme_override_styles/focus = SubResource("StyleBoxFlat_b8cf6")
+text = "SETTING"
+
 [node name="ExitButton" type="Button" parent="Control/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
@@ -138,4 +153,5 @@ text = "EXIT"
 
 [connection signal="button_down" from="Control/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/SettingButton" to="." method="_on_setting_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]

@@ -3,6 +3,7 @@ extends Node
 const BGM_BUS_NAME ="BGM"
 const SFX_BUS_NAME ="SFX"
 
+var master_bus_index =0
 @onready var bgm_bus_index = AudioServer.get_bus_index(BGM_BUS_NAME)
 @onready var sfx_bus_index = AudioServer.get_bus_index(SFX_BUS_NAME)
 
@@ -13,6 +14,8 @@ func _ready() -> void:
 		push_error("Audio Bus '%s' not found" % BGM_BUS_NAME)
 	if sfx_bus_index ==-1:
 		push_error("Audio Bus '%s' not found" %SFX_BUS_NAME)
+		
+	AudioServer.set_bus_volume_linear(master_bus_index, 1)
 	set_bgm_volume(0.1)
 	set_sfx_volume(0.1)
 		
@@ -55,3 +58,19 @@ func set_sfx_volume(linear_volume: float):
 	if sfx_bus_index == -1:
 		return
 	AudioServer.set_bus_volume_db(sfx_bus_index, linear_to_db(clampf(linear_volume, 0.0, 1.0)))
+
+func set_master_volume(linear_volume: float):
+	AudioServer.set_bus_volume_db(master_bus_index, linear_to_db(clampf(linear_volume, 0.0, 1.0)))
+
+func get_master_volume_linear() -> float:
+	return AudioServer.get_bus_volume_linear(master_bus_index)
+
+func get_bgm_volume_linear() -> float:
+	if bgm_bus_index ==-1:
+		return -1
+	return AudioServer.get_bus_volume_linear(bgm_bus_index)
+
+func get_sfx_volume_linear() -> float:
+	if sfx_bus_index ==-1:
+		return -1
+	return AudioServer.get_bus_volume_linear(sfx_bus_index)

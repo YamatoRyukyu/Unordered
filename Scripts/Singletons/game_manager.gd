@@ -5,6 +5,7 @@ var prepare_scene_path: String = "res://Scenes/GameSequence/preparation.tscn"
 var game_scene_path: String = "res://Scenes/GameSequence/survive_game.tscn"
 var game_over_scene_path: String = "res://Scenes/GameSequence/result.tscn"
 var upgrade_scene_path: String = "res://Scenes/UpgradeScreen/upgrade_screen.tscn"
+var setting_scene_path: String = "res://Scenes/GameSequence/setting.tscn"
 
 var inited_save_res_path: String ="res://Datas/InitedSaveData.tres"
 var save_res_path: String ="user://SaveData.tres"
@@ -46,6 +47,11 @@ func load_game_over_scene():
 
 func load_upgrade_scene():
 	get_tree().change_scene_to_file(upgrade_scene_path)
+
+func load_setting_scene():
+	var setting_scene: PackedScene =load(setting_scene_path)
+	var setting_scene_instance: Node =setting_scene.instantiate()
+	add_child(setting_scene_instance)
 
 func load_save_data():
 	if ResourceLoader.exists(save_res_path):
