@@ -1,75 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://jfqc2mtjwtqw"]
+[gd_scene load_steps=5 format=3 uid="uid://jfqc2mtjwtqw"]
 
 [ext_resource type="Script" uid="uid://cavd73f4drl4o" path="res://Scenes/GameSequence/title.gd" id="1_w31pl"]
+[ext_resource type="Theme" uid="uid://dh6j6us0803oh" path="res://Scenes/Credit/Theme/Button_black.tres" id="2_q24nh"]
 
 [sub_resource type="FontVariation" id="FontVariation_4obfb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w31pl"]
 font = SubResource("FontVariation_4obfb")
 font_size = 81
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ythm"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q24nh"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpgy3"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbhiy"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmh73"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta5eu"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdynl"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0t21"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4abm"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
 
 [node name="Title" type="CanvasLayer"]
 script = ExtResource("1_w31pl")
@@ -102,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -361.5
-offset_top = -113.0
-offset_right = 361.5
-offset_bottom = 322.0
+offset_left = -230.0
+offset_top = -175.0
+offset_right = 230.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 57
@@ -113,31 +51,36 @@ alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("2_q24nh")
+theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 71
-theme_override_styles/normal = SubResource("StyleBoxFlat_6ythm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q24nh")
-theme_override_styles/hover = SubResource("StyleBoxFlat_hpgy3")
 text = "START"
 
 [node name="UpgradeButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("2_q24nh")
 theme_override_font_sizes/font_size = 71
-theme_override_styles/normal = SubResource("StyleBoxFlat_pbhiy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nmh73")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ta5eu")
 text = "UPGRADE"
 
-[node name="EndButton" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 71
-theme_override_styles/normal = SubResource("StyleBoxFlat_sdynl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_n0t21")
-theme_override_styles/hover = SubResource("StyleBoxFlat_d4abm")
+
+[node name="CREDITButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_q24nh")
+theme_override_font_sizes/font_size = 50
+text = "CREDIT
+"
+
+[node name="EndButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_q24nh")
+theme_override_font_sizes/font_size = 50
 text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CREDITButton" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EndButton" to="." method="_on_end_button_pressed"]

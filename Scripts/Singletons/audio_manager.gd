@@ -33,7 +33,8 @@ func play_bgm(stream: AudioStream, fade_in_duration: float =5.0):
 	tween.tween_property(bgm_player, "volume_db", 0.0, fade_in_duration)
 	
 func stop_bgm():
-	bgm_player.queue_free()
+	if bgm_player:
+		bgm_player.queue_free()
 	
 func play_sfx(stream: AudioStream, position:Vector2 =Vector2.ZERO):
 	var player: Node
