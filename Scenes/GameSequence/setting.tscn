@@ -1,0 +1,273 @@
+[gd_scene load_steps=9 format=3 uid="uid://b16ye4xcsofo3"]
+
+[ext_resource type="Script" uid="uid://bd5nqv05l2qg5" path="res://Scenes/GameSequence/setting.gd" id="1_glj7b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwq3p"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glj7b"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucniu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lbmi"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpkm8"]
+bg_color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1qrd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7espx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Setting" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_glj7b")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -2.0
+offset_right = 257.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -61.5
+offset_right = 61.5
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "SETTING"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = 82.0
+offset_right = -86.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="MasterVolume" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer/MasterVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/MasterVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/MasterVolume/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MASTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master" type="HSlider" parent="Control/VBoxContainer/MasterVolume/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_cwq3p")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_glj7b")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_glj7b")
+max_value = 1.0
+step = 0.05
+value = 0.45
+
+[node name="BGMVolume" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer/BGMVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/BGMVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/BGMVolume/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BGM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGM" type="HSlider" parent="Control/VBoxContainer/BGMVolume/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_cwq3p")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_glj7b")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_glj7b")
+max_value = 1.0
+step = 0.05
+value = 0.45
+
+[node name="SEVolume" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer/SEVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/SEVolume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_right = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/SEVolume/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SE" type="HSlider" parent="Control/VBoxContainer/SEVolume/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_cwq3p")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_glj7b")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_glj7b")
+max_value = 1.0
+step = 0.05
+value = 0.45
+
+[node name="Exit" type="Button" parent="Control"]
+process_mode = 3
+layout_mode = 0
+offset_left = 86.0
+offset_top = 398.0
+offset_right = 428.0
+offset_bottom = 468.0
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucniu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8lbmi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tpkm8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h1qrd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7espx")
+text = "EXIT"
+
+[connection signal="value_changed" from="Control/VBoxContainer/MasterVolume/HBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/BGMVolume/HBoxContainer/BGM" to="." method="_on_bgm_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/SEVolume/HBoxContainer/SE" to="." method="_on_se_value_changed"]
+[connection signal="button_down" from="Control/Exit" to="." method="_on_exit_button_down"]
